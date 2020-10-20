@@ -4,7 +4,7 @@ const choices = Array.from(document.getElementsByClassName("choice-text"));
 let currentQuestion = {};
 let acceptAnswers = false;
 let score = 0;
-let questionCOunter = 0;
+let questionCounter = 0;
 let availableQuestions = [];
 
 let questions = [
@@ -41,7 +41,7 @@ const CORRECT_BONUS = 10;
 const MAX_QUESTIONS = 3;
 
 startGame = () => {
-  questionCOunter = 0;
+  questionCounter = 0;
   score = 0;
   availableQuestions = [...questions];
   
@@ -49,11 +49,11 @@ startGame = () => {
 };
 
 getNewQuestion = () => {
-    if(availableQuestions.length === 0 || questionCOunter> MAX_QUESTIONS){
+    if(availableQuestions.length === 0 || questionCounter> MAX_QUESTIONS){
         //GO TO END SCREEN//
         return window.location.assign("/end.html");
     }
-  questionCOunter++;
+  questionCounter++;
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
   question.innerText = currentQuestion.question;
